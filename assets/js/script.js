@@ -1,3 +1,5 @@
+// TO FIX EMBEDDING ISSUE: MUST DO SEARCH AS USUAL, THEN GET INFO ON EACH VIDEO AND GET PART=STATUS TO CHECK IF EMBED IS ALLOWED
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code doesn't run until the DOM is finished loading
 $(function () {
@@ -6,15 +8,18 @@ $(function () {
   var youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 
   // create youtube api key
-  var youtubeApiKey = "AIzaSyCPMSYfJmdJ5lPXKyA8YkBfc7O8tu8i9ks";
+  var youtubeApiKey = "AIzaSyCfxIemrTpsXdwX9FCXCXXq_XxhDes3zjc";
+
   function savePlaylist(playlist) {
     localStorage.setItem("currentPlaylist", JSON.stringify(playlist))
   }
+
   function getCurrentPlaylist (){
     var currentPlaylist = JSON.parse(localStorage.getItem("currentPlaylist"))
     displayPlaylist(currentPlaylist)
   }
-  // create function to embed video
+
+  // function to create embedded video
   function embedVideo(data) {
     // get video id from data object
     var videoId = data.items[0].id.videoId;
